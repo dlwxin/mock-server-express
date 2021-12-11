@@ -6,6 +6,8 @@ const port = 3000
 app.use(require('cors')())
 app.use(express.json())
 
+// http://localhost:3000/public/link.png
+// curl http://localhost:3000/public/link.png
 app.use('/public', express.static(path.join(__dirname, '../public')))
 
 // curl localhost:3000
