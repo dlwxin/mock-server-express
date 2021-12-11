@@ -1,7 +1,8 @@
 FROM node:14.4.0
 COPY . /app
 WORKDIR /app
-RUN npm install --registry=https://registry.npm.taobao.org
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm \
+    && pnpm install 
 EXPOSE 3000
-CMD npm run start
+CMD pnpm start
  
