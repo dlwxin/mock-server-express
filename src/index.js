@@ -14,6 +14,7 @@ app.use('/public', express.static(path.join(__dirname, '../public')))
 app.get('/', (req, res) => {
   res.send({
     msg: 'Hello World!',
+    timestamp: Date.now(),
   })
 })
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 app.get('/list/:id', (req, res) => {
   const result = {
     id: req.params.id,
+    timestamp: Date.now(),
   }
   res.send(result)
 })
@@ -38,6 +40,7 @@ app.post('/login', (req, res) => {
     username,
     password,
     msg: 'Hello World!',
+    timestamp: Date.now(),
   })
 })
 
