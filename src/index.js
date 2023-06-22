@@ -1,4 +1,6 @@
 const express = require('express')
+const ipUtil = require('./utils/ipUtil')
+
 const app = express()
 const path = require('path')
 const port = 3000
@@ -15,6 +17,7 @@ app.get('/', (req, res) => {
   res.send({
     msg: 'Hello World!',
     timestamp: Date.now(),
+    origin: ipUtil.getIpFromHttpRequest(req),
   })
 })
 
@@ -23,6 +26,7 @@ app.get('/list/:id', (req, res) => {
   const result = {
     id: req.params.id,
     timestamp: Date.now(),
+    origin: ipUtil.getIpFromHttpRequest(req),
   }
   res.send(result)
 })
@@ -41,6 +45,7 @@ app.post('/login', (req, res) => {
     password,
     msg: 'Hello World!',
     timestamp: Date.now(),
+    origin: ipUtil.getIpFromHttpRequest(req),
   })
 })
 
